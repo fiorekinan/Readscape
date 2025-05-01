@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial&display=swap');
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+section, div, main, body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+:root {
+    --bg-color: #ECEEE9;
+    --primary: #EFD401;
+    --secondary: #578856;
+    --red: #C03D2D;
+    --blue: #04889E;
+}
+
+.button {
+    background-color: var(--primary);
+    color: black;
+    border: 3px solid black;
+}
+
+.button:hover {
+    background-color: transparent;
+    color: black;
+    border: 3px solid black !important;
+    transition: .3s;
+}
+
+
+/* header */
+header {
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    height: 80px;
+    border-bottom: 3px solid black;
+}
+
+
+.card {
+    border: none;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+.section-title {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+
+
+header .navbar-brand {
+    font-weight: 700;
+    font-size: 24px;
+}
+/* End Header */
+
+/* hero */
+.hero {
+    margin-top: 0;
+    padding: 100px 0;
+    display: flex;
+    color: white;
+    padding-top: 0;
+}
+
+.hero-section {
+    height: 100vh;
+    border-bottom: 3px solid black;
+}
+
+
+.col-md-6 {
+    background-color: var(--secondary);
+    border-right: 1px solid #000000;
+}
+
+.col-md-6:nth-child(2) {
+    background: var(--red);
+    border-left: 2px solid #000000;
+}
+
+/* semua buku */
+.card {
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+.card img {
+    border-bottom: 3px solid black;
+}
+
+.badge-custom {
+    background: var(--primary);
+    border: 3px solid black;
+    color: black;
+    font-weight: 500;
+}
+
+/* Footer */
+footer {
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+
+footer h5 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+
+footer a {
+    color: #bbb;
+    text-decoration: none;
+}
+/* End Footer */
+
+
+/* all book */
+.scrolling-wrapper {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+.scrolling-wrapper > a {
+    scroll-snap-align: start;
+    flex: 0 0 auto;
+    text-decoration: none;
+}
+
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+/* End all book */
+
+
+/* Responsif khusus tambahan */
+@media (max-width: 768px) {
+
+
+    h1,
+    .display-1,
+    .display-2,
+    .display-3,
+    .display-4,
+    .display-5 {
+        font-size: 1.8rem !important;
+    }
+
+
+    .lead {
+        font-size: 1rem;
+    }
+
+
+    .btn {
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 1rem;
+    }
+
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+}
