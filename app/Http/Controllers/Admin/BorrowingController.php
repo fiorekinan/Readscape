@@ -9,31 +9,31 @@ use Illuminate\Http\Request;
 class BorrowingController extends Controller
 {
     public function borrowingUnreturned() {
-        //ambil data peminjaman yang statusnya = 'dipinjam'
-        $borrowings = Borrow::where('status', 'dipinjam')->latest()->paginate(10);
+        // get borrowings where status = 'borrowed'
+        $borrowings = Borrow::where('status', 'borrowed')->latest()->paginate(10);
 
         return view('admin.borrowing.unreturned', compact('borrowings'));
     }
 
     public function returnBook($id) {
-        $borrowing = Borrow::findorFail($id);
+        $borrowing = Borrow::findOrFail($id);
 
-        //cek status buku
-        if($borrowing->status === 'dipinjam') {
-            $borrowing->status = 'dikembalikan';
+        // check book status
+        if($borrowing->status === 'borrowed') {
+            $borrowing->status = 'returned';
             $borrowing->save();
 
-            //update stock
+            // update stock
             $borrowing->book->increment('stock');
 
-            return redirect()->back()->with('message', 'Buku berhasil dikembalikan!');
+            return redirect()->back()->with('message', 'Book successfully returned!');
         }
-        return redirect()->back()->with('message', 'Buku sudah dikembalikan sebelumnya');
+        return redirect()->back()->with('message', 'Book was already returned previously.');
     }
 
     public function borrowingReturned() {
-        //ambil data peminjaman yang statusnya = 'dikembalikan'
-        $borrowings = Borrow::where('status', 'dikembalikan')->latest()->paginate(10);
+        // get borrowings where status = 'returned'
+        $borrowings = Borrow::where('status', 'returned')->latest()->paginate(10);
 
         return view('admin.borrowing.returned', compact('borrowings'));
     }

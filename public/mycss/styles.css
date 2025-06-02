@@ -69,6 +69,11 @@ nav a {
     padding-top: 0;
 }
 
+.hero-text h1 {
+    font-size: 55px;
+    margin-top: 200px;
+}
+
 .hero-section {
     height: 100vh;
     border-bottom: 3px solid black;

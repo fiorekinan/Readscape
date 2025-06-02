@@ -1,17 +1,14 @@
 @extends('student.base')
 
-
-@section('title', 'Buku yang Dipinjam')
-
+@section('title', 'Borrowed Books')
 
 @section('content')
 <section class="py-5">
     <div class="container">
-        <h2 class="mb-4 fw-bold">Buku yang Sedang Dipinjam</h2>
-
+        <h2 class="mb-4 fw-bold">Currently Borrowed Books</h2>
 
         @if($borrowings->isEmpty())
-            <div class="alert alert-info">Kamu belum meminjam buku apapun.</div>
+            <div class="alert alert-info">You haven't borrowed any books yet.</div>
         @else
             <div class="list-group">
                 @foreach($borrowings as $borrowing)
@@ -30,16 +27,16 @@
             <div class="flex-grow-1">
                 <h5 class="mb-1 fw-semibold">{{ $book->title }}</h5>
                 <p class="mb-1 text-muted">
-                    Dipinjam: <strong>{{ $borrowedAt->format('d M Y') }}</strong> |
-                    Kembali sebelum: <strong>{{ $returnDate->format('d M Y') }}</strong>
+                    Borrowed on: <strong>{{ $borrowedAt->format('d M Y') }}</strong> |
+                    Return by: <strong>{{ $returnDate->format('d M Y') }}</strong>
                 </p>
 
                 @if($diff === 0)
-                    <span class="badge bg-custom mb-2" style="background-color: #EFD401">Hari Terakhir - Kembalikan Buku!</span>
+                    <span class="badge bg-custom mb-2" style="background-color: #EFD401">Last Day - Return the Book!</span>
                 @elseif($diff < 0)
-                    <span class="badge bg-custom mb-2" style="background-color: #C03D2D">Terlambat {{ abs($diff) }} hari - Denda Berlaku</span>
+                    <span class="badge bg-custom mb-2" style="background-color: #C03D2D">Overdue by {{ abs($diff) }} day(s) - Fine Applies</span>
                 @else
-                    <span class="badge badge-custom mb-2" style="background-color: #578856">Masih ada {{ $diff }} hari</span>
+                    <span class="badge badge-custom mb-2" style="background-color: #578856">{{ $diff }} day(s) left</span>
                 @endif
 
                 <p class="mb-0"><strong>Status:</strong> {{ ucfirst($borrowing->status) }}</p>

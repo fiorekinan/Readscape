@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="{{ asset('purple/assets/hero-img.png')}}" type="image/x-icon">
 </head>
 
-<body>
+<body> 
     {{-- navbar --}}
     <header class="header fixed-top">
         <div class="container py-3 d-flex justify-content-between align-items-center">
@@ -30,8 +30,8 @@
    <section class="hero text-center">
         <div class="container-fluid">
             <div class="row min-vh-80 hero-section">
-                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start p-5">
-                    <h1 class="text-start w-75 fs-1 fw-semibold">Explore countless stories and discover your perfect book.</h1>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start p-5 hero-text">
+                    <h1 class="text-start w-75 fw-semibold">Explore countless stories and discover your perfect book.</h1>
                     <p class="text-start w-75 fs-5">Dive into a world of stories, knowledge, and inspiration — right at your fingertips.</p>
                     <a href="#books" class="button btn fw-semibold px-4 py-1">View Latest Books</a>
                 </div>
